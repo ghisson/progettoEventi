@@ -1,0 +1,41 @@
+<form [formGroup]="dati" (ngSubmit)="invio()">
+    <div class="form-group">
+      <label >nome</label>
+      <input type="text" formControlName="nome" class="form-control" aria-describedby="emailHelp" placeholder="Inserisci il nome">
+    </div>
+    <div class="form-group">
+      <label >cognome</label>
+      <input type="text" class="form-control" formControlName="cognome" placeholder="cognome">
+    </div>
+    <div class="form-group">
+      <label >Sesso</label>
+      <!--<input type="text" class="form-control" formControlName="genere"  placeholder="Sesso">-->
+      <input type="radio" formControlName="genere" value="M" > Maschio
+      <input type="radio" formControlName="genere" value="F"> Femmina
+    </div>
+    <div class="form-group">
+      <label >email</label>
+      <input type="email" class="form-control" formControlName="email" placeholder="email">
+    </div>
+    <div class="form-group">
+      <label >password</label>
+      <input type="password" class="form-control" formControlName="password"  placeholder="password">
+    </div>
+  
+    <div class="form-group">
+      <label >data di nascita</label>
+      <input type="date" class="form-control" formControlName="data_di_nascita"  >
+    </div>
+  
+    <div class="form-group">
+      <label >luogo di nascita</label>
+      <input type="text" class="form-control" formControlName="luogo_di_nascita"  placeholder="luogo di nascita">
+    </div>
+  
+    <div class="form-group">
+      <label >codice fiscale</label>
+      <input type="text" class="form-control" formControlName="codice_fiscale"  placeholder="codice fiscale">
+    </div>
+    
+    <button type="submit" [disabled]="dati.invalid" class="btn btn-primary">Submit</button>
+  </form>

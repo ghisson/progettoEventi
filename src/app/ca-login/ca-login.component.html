@@ -1,0 +1,24 @@
+<form style="margin-top:20px" [formGroup]="dati" (ngSubmit)="invio()">
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+        <label class="form-label" for="form2Example1">Email address</label>
+        <input type="email" id="form2Example1" class="form-control" formControlName="email"/>
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+        <label class="form-label" for="form2Example2">Password</label>
+        <input type="password" id="form2Example2" class="form-control" formControlName="password" />
+
+    </div>
+
+
+
+    <!-- Submit button -->
+    <button type="submit" [disabled]="dati.invalid" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+    <!-- Register buttons -->
+    <div class="text-center">
+        <p>Not a member? <a routerLink="/registrazione">Register</a></p>
+    </div>
+</form>

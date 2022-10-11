@@ -8,11 +8,17 @@ import { CaNavbarComponent } from './ca-navbar/ca-navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceUtente } from './service/service-utente';
+import { CaRegistrazioneComponent } from './ca-registrazione/ca-registrazione.component';
+import { CaLoginComponent } from './ca-login/ca-login.component';
+import { CaHomeComponent } from './ca-home/ca-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CaNavbarComponent
+    CaNavbarComponent,
+    CaRegistrazioneComponent,
+    CaLoginComponent,
+    CaHomeComponent
   ],
   imports: [
     BrowserModule,

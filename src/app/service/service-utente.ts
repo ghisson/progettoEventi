@@ -1,10 +1,14 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Utente } from "../model/utente";
 import { Injectable } from '@angular/core';
+import { Observable, observable } from "rxjs";
 
 const baseUrl:string="http://localhost:8080/utente"
+
+
 @Injectable()
 export class ServiceUtente {
+    
     
     httpOptions = {
         headers: new HttpHeaders({
@@ -16,19 +20,8 @@ export class ServiceUtente {
     constructor(private http: HttpClient) {
     }
 
-    creaUtente(utente:Utente):void{
+    creaUtente(utente:Utente):Observable<any> {
        
-        this.http.post<any>(baseUrl+'/addUtente', utente,this.httpOptions).subscribe(
-            (response) => {                           //Next callback
-              console.log('response received')
-              console.log(response)
-            },
-            (error) => {                              //Error callback
-              console.error('error caught in component')
-              console.log(error)
-              console.log(error.status)
-              //throw error;   //You can also throw the error to a global error handler
-            }
-          );
+        return this.http.post<any>(baseUrl+'/addUtente', utente,this.httpOptions);
     }
 }

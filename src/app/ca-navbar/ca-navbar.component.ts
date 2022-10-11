@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CaNavbarComponent implements OnInit {
 
-  constructor() { }
+  loggato: string | null
+
+  constructor() {
+    this.loggato = sessionStorage.getItem("login")
+  }
+
+
 
   ngOnInit(): void {
+  }
+
+  token():boolean{
+    return false
   }
 
 }
