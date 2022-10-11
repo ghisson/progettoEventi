@@ -18,18 +18,6 @@ export class Utente {
     private codice_fiscale:string;
 
 
-    /*constructor(nome:string, cognome:string,genere:string,email:string,password:string,data_di_nascita:Date,luogo_di_nascita:string, codice_fiscale:string){
-
-        this.nome=nome;
-        this.cognome=cognome;
-        this.genere=genere;
-        this.email=email;
-        this.password=password;
-        this.data_di_nascita=data_di_nascita;
-        this.luogo_di_nascita=luogo_di_nascita;
-        this.codice_fiscale=codice_fiscale;
-    }*/
-
 
 
 
