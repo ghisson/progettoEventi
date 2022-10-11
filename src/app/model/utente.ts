@@ -19,6 +19,8 @@ export class Utente {
 
 
 
+    /*marcio fai schifo
+    */
 
     constructor(utente:any){
         this.nome=utente.get('nome').value
