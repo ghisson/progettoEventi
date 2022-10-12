@@ -18,8 +18,6 @@ export class CaNavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  token():boolean{
-    return false
-  }
+ 
 
 }
