@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-ca-navbar',
@@ -7,17 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CaNavbarComponent implements OnInit {
 
-  loggato: string | null
+  loggato: any
 
   constructor() {
-    this.loggato = sessionStorage.getItem("login")
+    
+
   }
+  
 
 
-
-  ngOnInit(): void {
+  ngOnInit(): void {   
+    this.loggato = sessionStorage.getItem('login');   
   }
-
- 
 
 }
