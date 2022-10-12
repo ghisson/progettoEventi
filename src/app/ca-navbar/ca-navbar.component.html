@@ -6,9 +6,9 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-item nav-link active" routerLink="/home">Home</a>
-            <a class="nav-item nav-link" routerLink="/registrazione">Registrati</a>
-            <a class="nav-item nav-link" routerLink="/login" href="#">Login</a>
-            <a class="nav-item nav-link"  *ngIf="this.loggato==='true'" >Logout</a>
+            <a class="nav-item nav-link" *ngIf="this.loggato==='false'" routerLink="/registrazione">Registrati</a>
+            <a class="nav-item nav-link" *ngIf="this.loggato==='false'" routerLink="/login" href="#">Login</a>
+            <a class="nav-item nav-link" (click)="logout()"  *ngIf="this.loggato==='true'" >Logout</a>
           </div>
         </div>
       </nav>

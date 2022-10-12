@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Utente } from "../model/utente";
 import { Injectable } from '@angular/core';
-import { Observable, observable } from "rxjs";
+import { BehaviorSubject, Observable, observable } from "rxjs";
 
 const baseUrl:string="http://localhost:8080/utente"
 
@@ -10,6 +10,7 @@ const baseUrl:string="http://localhost:8080/utente"
 export class ServiceUtente {
     
     
+    public isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     
     httpOptions = {
         headers: new HttpHeaders({
@@ -32,6 +33,10 @@ export class ServiceUtente {
 
     setLoggato(){
         sessionStorage.setItem("login", "true");
+    }
+
+    setLogout(){
+        sessionStorage.setItem("login", "false");
     }
 
     getLoggato():boolean{

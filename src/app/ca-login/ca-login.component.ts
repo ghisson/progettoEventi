@@ -34,13 +34,15 @@ export class CaLoginComponent implements OnInit {
       (response:any) => {
         this.serviceUtente.setLoggato();
         this.errore=false;
-        //this.router.navigate(['/home']);
+        this.serviceUtente.isUserLoggedIn.next(true);
+        this.router.navigate(['/home']);
         
        
         
       },
       (error:any) => {
         this.errore=true;
+        this.serviceUtente.isUserLoggedIn.next(false);
       }
     )
     //sessionStorage.setItem("login", "true");
