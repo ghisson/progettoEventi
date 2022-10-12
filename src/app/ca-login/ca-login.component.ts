@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ServiceUtente } from '../service/service-utente';
 
 @Component({
   selector: 'app-ca-login',
@@ -11,12 +12,15 @@ export class CaLoginComponent implements OnInit {
 
   dati: FormGroup;
 
+  errore:boolean
 
-  constructor(private fb: FormBuilder,private router: Router) {
+
+  constructor(private fb: FormBuilder,private router: Router,private serviceUtente: ServiceUtente) {
     this.dati = this.fb.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]]
     })
+    this.errore=false;
 
   }
 
@@ -25,10 +29,22 @@ export class CaLoginComponent implements OnInit {
   }
 
   invio(): void {
-    console.log("invio")
-    console.log(this.dati.value)
-    sessionStorage.setItem("login", "true");
-    this.router.navigate(['/home'])
+
+    this.serviceUtente.login(this.dati.get("email")?.value,this.dati.get("password")?.value).subscribe(
+      (response:any) => {
+        this.serviceUtente.setLoggato();
+        this.errore=false;
+        //this.router.navigate(['/home']);
+        
+       
+        
+      },
+      (error:any) => {
+        this.errore=true;
+      }
+    )
+    //sessionStorage.setItem("login", "true");
+    //this.router.navigate(['/home'])
   }
 
 }

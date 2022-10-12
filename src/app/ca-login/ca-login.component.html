@@ -1,4 +1,6 @@
 <form style="margin-top:20px" [formGroup]="dati" (ngSubmit)="invio()">
+
+    <span class="badge badge-danger " style="background-color: red;" *ngIf="this.errore">Email e/o Password sbagliati</span>
     <!-- Email input -->
     <div class="form-outline mb-4">
         <label class="form-label" for="form2Example1">Email address</label>
