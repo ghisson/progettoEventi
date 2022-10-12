@@ -1,5 +1,7 @@
 Backend {
-  -fk tabelle e relazioni
+  -fk DONE -> {
+      -Settore/Luogo
+      }
   -tutte API
 }
 
