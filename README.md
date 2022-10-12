@@ -5,6 +5,7 @@ Backend {
       -Utente/PrenotazioneEffettuata
       -Settore/SettoreDataEvento
       -DataEvento/SettoreDataEvento
+      -UtenteInvitato/PrenotazioneEffettuata
       }
   -tutte API
 }
