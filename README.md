@@ -3,6 +3,8 @@ Backend {
       -Settore/Luogo
       -Evento/DataEvento
       -Utente/PrenotazioneEffettuata
+      -Settore/SettoreDataEvento
+      -DataEvento/SettoreDataEvento
       }
   -tutte API
 }
