@@ -8,9 +8,9 @@ export class Settore {
 
   constructor(settore:any){
     this.idSettore=settore.idSettore;
-    this.nomeSettore=settore.nomeSetttore;
+    this.nomeSettore=settore.nomeSettore;
     this.numeroPosti=settore.numeroPosti;
-    this.luogo=settore.luogo;
+    this.luogo=new Luogo(settore.luogo)
   }
 
   public getIdSettore():number {
