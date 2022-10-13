@@ -35,8 +35,13 @@ export class ServiceUtente {
         sessionStorage.setItem("login", "true");
     }
 
+    setId(id:number){
+        sessionStorage.setItem("id", id+"");
+    }
+
     setLogout(){
         sessionStorage.setItem("login", "false");
+        sessionStorage.setItem("id", "0");
     }
 
     getLoggato():boolean{

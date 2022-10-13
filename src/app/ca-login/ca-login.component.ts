@@ -32,6 +32,7 @@ export class CaLoginComponent implements OnInit {
 
     this.serviceUtente.login(this.dati.get("email")?.value, this.dati.get("password")?.value).subscribe(
       (response: any) => {
+        this.serviceUtente.setId(response.idUtente);
         this.serviceUtente.setLoggato();
         this.errore = false;
         this.serviceUtente.isUserLoggedIn.next(true);

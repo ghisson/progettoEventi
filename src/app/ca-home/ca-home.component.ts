@@ -21,13 +21,9 @@ export class CaHomeComponent implements OnInit {
   ngOnInit(): void {
     this.serviceSettoreDataEvento.getAllSettoreDataEventoActive().subscribe(
       (response: any) => {
-    
-
         for (let i in response) {
           this.settoreDataEvento.push(new SettoreDataEvento(response[i]))
         }
-        console.log(this.settoreDataEvento)
-
       },
       (error: any) => {
         

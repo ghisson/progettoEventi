@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ObservableInput, takeUntil } from 'rxjs';
 import { ServiceUtente } from '../service/service-utente';
@@ -10,7 +11,8 @@ import { ServiceUtente } from '../service/service-utente';
 })
 export class CaNavbarComponent implements OnInit {
 
-  loggato: any
+  loggato: any;
+
 
   constructor(private serviceUtente: ServiceUtente,private router: Router) {
     this.serviceUtente.isUserLoggedIn.subscribe( value => {

@@ -41,8 +41,8 @@ export class DataEvento {
         return this.dataInizio.getHours();
     }
     getMinutiInizio(){
-        if(this.dataInizio.getMinutes().toString().length==1){
-            return "0"+this.dataInizio.getMinutes();
+        if(this.dataInizio.getMinutes().toString().length===1){
+            return "0"+this.dataInizio.getMinutes().toString();
         }
         return this.dataInizio.getMinutes();
     }
@@ -50,10 +50,10 @@ export class DataEvento {
         return this.dataFine.getHours();
     }
     getMinutiFine(){
-        if(this.dataInizio.getMinutes().toString().length==1){
-            return "0"+this.dataFine.getMinutes();
+        if(this.dataFine.getMinutes().toString().length===1){
+            return "0"+this.dataFine.getMinutes().toString();
         }
-        return this.dataInizio.getMinutes();
+        return this.dataFine.getMinutes();
     }
     getDayText(){
         return this.settimane[this.dataInizio.getDay()];

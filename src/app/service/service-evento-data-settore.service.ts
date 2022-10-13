@@ -13,6 +13,6 @@ export class ServiceEventoDataSettoreService {
   constructor(private http: HttpClient) { }
 
   getAllSettoreDataEventoActive():Observable<any> {   
-    return this.http.get<any>(baseUrl+'/getAllActive');
+    return this.http.get<any>(baseUrl+'/getAll');
   }
 }
