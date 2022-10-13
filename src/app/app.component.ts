@@ -11,8 +11,8 @@ import { ServiceUtente } from './service/service-utente';
 export class AppComponent {
 
   constructor() {
-    /*if (sessionStorage.getItem("login")==null) {
+    if (sessionStorage.getItem("login")==null) {
       sessionStorage.setItem("login", "false");
-    }*/
+    }
   }
 }

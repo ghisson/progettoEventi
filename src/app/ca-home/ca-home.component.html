@@ -1,1 +1,36 @@
-<p>ca-home works!</p>
+<div class="row" style="margin-top:20px">
+
+    <!-- dropdown del menu filtri-->
+    <div class="col-2">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-2">
+        <input type="text" class="form-control" placeholder="Inserisci la città">
+    </div>
+
+    <div class="col-4" style="display: flex; justify-content: space-evenly;">
+        <label class="col-2" style="margin: auto;">Da</label>
+        <input type="date" class="form-control col-10"  [min]="date">
+    </div>
+
+    <div class="col-4" style="display: flex; justify-content: space-evenly;">
+        <label class="col-2" style="margin: auto;">A</label>
+        <input type="date" class="form-control col-10"  [min]="date">
+    </div>
+
+</div>
+
+
+
+<app-ca-card></app-ca-card>

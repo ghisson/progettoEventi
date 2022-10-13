@@ -12,36 +12,34 @@ export class CaLoginComponent implements OnInit {
 
   dati: FormGroup;
 
-  errore:boolean
+  errore: boolean
 
 
-  constructor(private fb: FormBuilder,private router: Router,private serviceUtente: ServiceUtente) {
+  constructor(private fb: FormBuilder, private router: Router, private serviceUtente: ServiceUtente) {
     this.dati = this.fb.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]]
     })
-    this.errore=false;
+    this.errore = false;
 
   }
 
-  
+
   ngOnInit(): void {
   }
 
   invio(): void {
 
-    this.serviceUtente.login(this.dati.get("email")?.value,this.dati.get("password")?.value).subscribe(
-      (response:any) => {
+    this.serviceUtente.login(this.dati.get("email")?.value, this.dati.get("password")?.value).subscribe(
+      (response: any) => {
         this.serviceUtente.setLoggato();
-        this.errore=false;
+        this.errore = false;
         this.serviceUtente.isUserLoggedIn.next(true);
         this.router.navigate(['/home']);
-        
-       
-        
+
       },
-      (error:any) => {
-        this.errore=true;
+      (error: any) => {
+        this.errore = true;
         this.serviceUtente.isUserLoggedIn.next(false);
       }
     )

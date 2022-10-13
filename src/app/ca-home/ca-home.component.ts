@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceEventoDataSettoreService } from '../service/service-evento-data-settore.service';
 
 @Component({
   selector: 'app-ca-home',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CaHomeComponent implements OnInit {
 
-  constructor() { }
+  date:any;
+
+  constructor(private serviceSettoreDataEvento: ServiceEventoDataSettoreService) { 
+    this.date = new Date().toISOString().slice(0, 10);
+  }
 
   ngOnInit(): void {
+    this.serviceSettoreDataEvento.getAllSettoreDataEventoActive().subscribe(
+      (response: any) => {
+        console.log(response);
+
+      },
+      (error: any) => {
+        
+      }
+    )
   }
 
 }

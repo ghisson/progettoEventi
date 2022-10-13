@@ -13,10 +13,12 @@ export class CaRegistrazioneComponent implements OnInit {
 
   dati: FormGroup;
   utente: Utente | undefined;
+  date:any
 
   constructor(private fb: FormBuilder, private serviceUtente: ServiceUtente,
     private router: Router) {
-      
+    
+    this.date = new Date().toISOString().slice(0, 10);
     this.dati = this.fb.group({
       nome: ['', [Validators.required]],
       cognome: ['', [Validators.required]],

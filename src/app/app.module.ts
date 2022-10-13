@@ -11,6 +11,8 @@ import { ServiceUtente } from './service/service-utente';
 import { CaRegistrazioneComponent } from './ca-registrazione/ca-registrazione.component';
 import { CaLoginComponent } from './ca-login/ca-login.component';
 import { CaHomeComponent } from './ca-home/ca-home.component';
+import { ServiceEventoDataSettoreService } from './service/service-evento-data-settore.service';
+import { CaCardComponent } from './ca-card/ca-card.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { CaHomeComponent } from './ca-home/ca-home.component';
     CaNavbarComponent,
     CaRegistrazioneComponent,
     CaLoginComponent,
-    CaHomeComponent
+    CaHomeComponent,
+    CaCardComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { CaHomeComponent } from './ca-home/ca-home.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ServiceUtente],
+  providers: [ServiceUtente,ServiceEventoDataSettoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
