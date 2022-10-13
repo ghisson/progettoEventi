@@ -5,6 +5,8 @@ export class DataEvento {
     private idDataEvento:number;
     private dataInizio:Date;
     private dataFine:Date;
+    private settimane:string[];
+    private mesi: string[];
 
     private evento:Evento;
 
@@ -13,6 +15,8 @@ export class DataEvento {
         this.dataFine=new Date(dataEvento.dataFine);
         this.dataInizio=new Date(dataEvento.dataInizio);
         this.evento=new Evento(dataEvento.evento)
+        this.settimane=["Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato","Domenica"];
+        this.mesi=["Gen","Feb","Mar","Apr","Mag","Giu","Lug","Ago","Set","Ott","Nov","Dic"];
     }
 
     getIdDataEvento(){
@@ -33,4 +37,29 @@ export class DataEvento {
     getDayInizio(){
         return this.dataInizio.getDate();
     }
+    getOraInizio(){
+        return this.dataInizio.getHours();
+    }
+    getMinutiInizio(){
+        if(this.dataInizio.getMinutes().toString().length==1){
+            return "0"+this.dataInizio.getMinutes();
+        }
+        return this.dataInizio.getMinutes();
+    }
+    getOraFine(){
+        return this.dataFine.getHours();
+    }
+    getMinutiFine(){
+        if(this.dataInizio.getMinutes().toString().length==1){
+            return "0"+this.dataFine.getMinutes();
+        }
+        return this.dataInizio.getMinutes();
+    }
+    getDayText(){
+        return this.settimane[this.dataInizio.getDay()];
+    }
+    getMonthInizioText() {
+        return this.mesi[this.dataInizio.getMonth()];
+    }
+    
 }
