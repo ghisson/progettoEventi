@@ -10,8 +10,8 @@ export class DataEvento {
 
     constructor(dataEvento:any){
         this.idDataEvento=dataEvento.idDataEvento;
-        this.dataFine=dataEvento.dataFine;
-        this.dataInizio=dataEvento.dataInizio;
+        this.dataFine=new Date(dataEvento.dataFine);
+        this.dataInizio=new Date(dataEvento.dataInizio);
         this.evento=new Evento(dataEvento.evento)
     }
 
@@ -26,5 +26,11 @@ export class DataEvento {
     }
     getEvento(){
         return this.evento;
+    }
+    getMonthInizio() {
+        return this.dataInizio.getMonth()+1;
+    }
+    getDayInizio(){
+        return this.dataInizio.getDate();
     }
 }

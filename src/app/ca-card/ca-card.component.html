@@ -4,23 +4,23 @@
         <div class="row">
           <div class="col-5 col-sm-3">
             <div class="display-4 ">
-              <span class="badge">23</span>
+              <span class="badge">{{this.settoreDataEvento.getDataEvento().getDayInizio()}}</span>
             </div>
             <div class="display-4">
-              {{this.settoreDataEvento.getDataEvento().getDataFine()}}
+              {{this.settoreDataEvento.getDataEvento().getMonthInizio()}}
             </div>
           </div>
           <div class="col-7 col-sm-9">
             <div class="d-flex flex-column">
               <h3 class="card-title text-uppercase mt-0">
-                <strong>Steps to Build a card</strong>                    
+                <strong>{{this.settoreDataEvento.getDataEvento().getEvento().getNomeEvento()}}</strong>                    
               </h3>
               <div class="card-text">
-                This is some random text. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                {{this.settoreDataEvento.getDataEvento().getEvento().getDescrizioneEvento()}}
               </div>
               <ul class="list-inline mt-auto">
-                <li class="list-inline-item"> <strong>Published By :</strong></li>
-                <li class="list-inline-item"><i class="fas fa-user"></i> Rocky Balboa</li>
+                <li class="list-inline-item"> <strong>Autore:</strong></li>
+                <li class="list-inline-item"><i class="fas fa-user"></i>{{this.settoreDataEvento.getDataEvento().getEvento().getAutoreEvento()}}</li>
               </ul>
             </div>
           </div>

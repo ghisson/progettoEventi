@@ -15,8 +15,8 @@ export class CaCardComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log(this.settoreDataEvento)
-    console.log(this.settoreDataEvento.getDataEvento().getDataFine())
+    console.log(this.settoreDataEvento.getDataEvento())
+    console.log(this.settoreDataEvento.getDataEvento().getDayInizio())
   }
 
 }
