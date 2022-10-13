@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { SettoreDataEvento } from '../model/settore-data-evento';
 
 @Component({
   selector: 'app-ca-card',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CaCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() settoreDataEvento : any;
+
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
+    console.log(this.settoreDataEvento)
+    console.log(this.settoreDataEvento.getDataEvento().getDataFine())
   }
 
 }
