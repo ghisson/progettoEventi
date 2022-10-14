@@ -129,8 +129,10 @@
   </button>
 </div>
 
-<div *ngFor="let i of val" >
-  <input  type="text" class="form-control" id="floatingInputValue{{i}}"  >
-  <label for="floatingInputValue{{i}}">Codice Fiscale</label>
-  
-</div>
+<form [formGroup]="dati"  (ngSubmit)="invio()">
+  <div *ngFor="let item of val; let i=index" >
+    <input  [formControlName]="'codiFiscale'+item" type="text" class="form-control" id="floatingInputValue{{i}}"  >
+    <label for="floatingInputValue{{i}}">Codice Fiscale</label>
+  </div>
+  <input type="submit">
+</form>
