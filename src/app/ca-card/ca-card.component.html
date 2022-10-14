@@ -18,6 +18,11 @@
               <div class="card-text">
                 {{this.settoreDataEvento.getDataEvento().getEvento().getDescrizioneEvento()}}
               </div>
+              
+              <ul class="list-inline mt-auto" style="margin-bottom:0px">
+                <li class="list-inline-item"> <strong>Categoria:</strong></li>
+                <li class="list-inline-item"><i class="fa fa-list-alt" aria-hidden="true"></i> {{this.settoreDataEvento.getDataEvento().getEvento().getCategoriaEvento()}}</li>
+              </ul>
               <ul class="list-inline mt-auto">
                 <li class="list-inline-item"> <strong>Autore:</strong></li>
                 <li class="list-inline-item"><i class="fa fa-user" aria-hidden="true"></i> {{this.settoreDataEvento.getDataEvento().getEvento().getAutoreEvento()}}</li>
