@@ -21,7 +21,12 @@ Frontend {
 
 da fare{
   prenota angular,
-  filtro angular con API,
   profilo,
-  recensione
+  recensione,
+  sfondo
+}
+
+cose fiche da fare in futuro{
+  autocompile filtro autore,
+  scroller dei filtri (carica altro)
 }
