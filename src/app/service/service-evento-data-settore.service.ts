@@ -20,7 +20,7 @@ export class ServiceEventoDataSettoreService {
   constructor(private http: HttpClient) { }
 
   getAllSettoreDataEventoActive():Observable<any> {   
-    return this.http.get<any>(baseUrl+'/getAll');
+    return this.http.get<any>(baseUrl+'/getAllActive');
   }
 
   getAllSettoreDataEventoActiveByFilter(filtro:any):Observable<any> {   

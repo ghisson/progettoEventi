@@ -7,8 +7,10 @@ export class SettoreDataEvento {
     private prezzoBiglietto:number;
     private dataEvento:DataEvento;
     private settore:Settore;
+    private postiDisponibili:number;
 
     constructor(settoreDataEvento:any){
+        this.postiDisponibili=settoreDataEvento.postiDisponibili;
         this.idSettoreDataEvento=settoreDataEvento.idSettoreDataEvento;
         this.prezzoBiglietto=settoreDataEvento.prezzoBiglietto;
         this.dataEvento=new DataEvento(settoreDataEvento.dataEvento)
@@ -28,5 +30,8 @@ export class SettoreDataEvento {
 
     getSettore(){
         return this.settore;
+    }
+    getPostiDisponibili(){
+        return this.postiDisponibili;
     }
 }

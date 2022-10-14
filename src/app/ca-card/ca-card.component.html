@@ -48,6 +48,7 @@
             <ul class="list-group my-0 pl-1">
               <li class="list-inline-item" style="font-size:25px;margin: 0 auto;"><!--<i class="fa fa-money" aria-hidden="true" ></i>--> {{this.settoreDataEvento.getPrezzoBiglietto()| currency:'EUR'}}</li>
               <button type="button" class="btn btn-warning mt-3" (click)="prenota()">Prenota</button>
+              <span class="badge badge-danger " style="margin-top: 5px;" >posti disponibili: {{this.settoreDataEvento.getPostiDisponibili()}}</span> 
               <span class="badge badge-danger " style="background-color: red; margin-top: 5px;" *ngIf="this.errore">Devi effettuare prima il login</span> 
             </ul>
           </div>
