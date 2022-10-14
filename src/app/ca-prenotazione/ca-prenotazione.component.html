@@ -1,0 +1,136 @@
+<div *ngIf="this.settoreDataEvento!=undefined" class="card-group evet-card text-light mb-2 mt-5">
+  <div class="card mb-0">
+    <div class="card-body py-1">
+      <div class="row">
+        <div class="col-5 col-sm-3">
+          <div class="display-4">
+            <span class="badge">{{
+              this.settoreDataEvento.getDataEvento().getDayInizio()
+            }}</span>
+          </div>
+          <div class="display-4">
+            {{ this.settoreDataEvento.getDataEvento().getMonthInizioText() }}
+          </div>
+        </div>
+        <div class="col-7 col-sm-9">
+          <div class="d-flex flex-column">
+            <h3 class="card-title text-uppercase mt-0">
+              <strong>{{
+                this.settoreDataEvento
+                  .getDataEvento()
+                  .getEvento()
+                  .getNomeEvento()
+              }}</strong>
+            </h3>
+            <div class="card-text">
+              {{
+                this.settoreDataEvento
+                  .getDataEvento()
+                  .getEvento()
+                  .getDescrizioneEvento()
+              }}
+            </div>
+
+            <ul class="list-inline mt-auto" style="margin-bottom: 0px">
+              <li class="list-inline-item"><strong>Categoria:</strong></li>
+              <li class="list-inline-item">
+                <i class="fa fa-list-alt" aria-hidden="true"></i>
+                {{
+                  this.settoreDataEvento
+                    .getDataEvento()
+                    .getEvento()
+                    .getCategoriaEvento()
+                }}
+              </li>
+            </ul>
+            <ul class="list-inline mt-auto">
+              <li class="list-inline-item"><strong>Autore:</strong></li>
+              <li class="list-inline-item">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                {{
+                  this.settoreDataEvento
+                    .getDataEvento()
+                    .getEvento()
+                    .getAutoreEvento()
+                }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-0">
+    <div class="card-body py-1">
+      <div class="row h-100">
+        <div class="col-6 col-sm-5">
+          <ul class="list-group my-0 pl-1">
+            <li class="list-inline-item">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              {{ this.settoreDataEvento.getDataEvento().getOraInizio() }}:{{
+                this.settoreDataEvento.getDataEvento().getMinutiInizio()
+              }}-{{ this.settoreDataEvento.getDataEvento().getOraFine() }}:{{
+                this.settoreDataEvento.getDataEvento().getMinutiFine()
+              }}
+            </li>
+            <li class="list-inline-item">
+              <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+              {{ this.settoreDataEvento.getDataEvento().getDayText() }}
+            </li>
+            <li class="list-inline-item">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              {{
+                this.settoreDataEvento.getSettore().getLuogo().getNomeLuogo()
+              }}
+            </li>
+            <li class="list-inline-item">
+              <i class="fa fa-compass" aria-hidden="true"></i>
+              {{ this.settoreDataEvento.getSettore().getNomeSettore() }}
+            </li>
+            <li class="list-inline-item">
+              <i class="fa fa-map" aria-hidden="true"></i>
+              {{
+                this.settoreDataEvento.getSettore().getLuogo().getUbicazione()
+              }}
+            </li>
+          </ul>
+        </div>
+        <div class="col-6 col-sm-7 bg-white text-dark">
+          <ul class="list-group my-0 pl-1">
+            <li
+              class="list-inline-item"
+              style="font-size: 25px; margin: 0 auto"
+            >
+              <!--<i class="fa fa-money" aria-hidden="true" ></i>-->
+              {{
+                this.settoreDataEvento.getPrezzoBiglietto() | currency: "EUR"
+              }}
+            </li>
+
+            <span class="badge badge-danger" style="margin-top: 5px"
+              >posti disponibili:
+              {{ this.settoreDataEvento.getPostiDisponibili() }}</span
+            >
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="font-size: 20px;">
+  <span class="badge badge-dark" style="margin: 10px;">Seleziona il numero di persone che vuoi invitare</span> 
+  <button (click)="diminuisci()">
+    <i class="fa fa-minus" aria-hidden="true"></i>
+  </button>
+  {{ countVal }}
+  <button (click)="aumenta()">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+  </button>
+</div>
+
+<div *ngFor="let i of val" >
+  <input  type="text" class="form-control" id="floatingInputValue{{i}}"  >
+  <label for="floatingInputValue{{i}}">Codice Fiscale</label>
+  
+</div>

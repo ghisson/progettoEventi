@@ -15,7 +15,6 @@ Backend {
 }
 
 Frontend {
-  -login sessione -> logout
   -impostazione grafica
 }
 
@@ -24,8 +23,7 @@ da fare{
   profilo,
   recensione,
   sfondo,
-  controllo posti disponibile per evento (Fatta da testare) e aggiungere variabile che ritorna i posti disponibili in 
-            quel momento
+  controllo posti disponibile per evento (Fatta da testare)
 }
 
 cose fiche da fare in futuro{

@@ -29,6 +29,7 @@ export class CaCardComponent implements OnInit {
     if(this.loggato==='false'){
       this.errore=true;
     }
+    
   }
 
 }

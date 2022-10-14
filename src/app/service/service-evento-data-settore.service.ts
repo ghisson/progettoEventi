@@ -26,4 +26,7 @@ export class ServiceEventoDataSettoreService {
   getAllSettoreDataEventoActiveByFilter(filtro:any):Observable<any> {   
     return this.http.post<any>(baseUrl+'/getAllByFilter',filtro,this.httpOptions);
   }
+  getSettoreDataEventoById(id:any):Observable<any>{
+    return this.http.get<any>(baseUrl+'/getSettoreDataEvento/'+id);
+  }
 }

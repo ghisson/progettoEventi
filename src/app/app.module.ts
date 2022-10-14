@@ -14,6 +14,7 @@ import { CaHomeComponent } from './ca-home/ca-home.component';
 import { ServiceEventoDataSettoreService } from './service/service-evento-data-settore.service';
 import { CaCardComponent } from './ca-card/ca-card.component';
 import { ServiceEventoService } from './service/service-evento.service';
+import { CaPrenotazioneComponent } from './ca-prenotazione/ca-prenotazione.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ServiceEventoService } from './service/service-evento.service';
     CaRegistrazioneComponent,
     CaLoginComponent,
     CaHomeComponent,
-    CaCardComponent
+    CaCardComponent,
+    CaPrenotazioneComponent
   ],
   imports: [
     BrowserModule,
