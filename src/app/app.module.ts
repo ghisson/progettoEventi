@@ -13,6 +13,7 @@ import { CaLoginComponent } from './ca-login/ca-login.component';
 import { CaHomeComponent } from './ca-home/ca-home.component';
 import { ServiceEventoDataSettoreService } from './service/service-evento-data-settore.service';
 import { CaCardComponent } from './ca-card/ca-card.component';
+import { ServiceEventoService } from './service/service-evento.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { CaCardComponent } from './ca-card/ca-card.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ServiceUtente,ServiceEventoDataSettoreService],
+  providers: [ServiceUtente,ServiceEventoDataSettoreService,ServiceEventoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

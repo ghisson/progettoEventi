@@ -23,6 +23,5 @@ da fare{
   prenota angular,
   filtro angular con API,
   profilo,
-  recensione,
-  CATEGORIA NELLE CARD
+  recensione
 }
