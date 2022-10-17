@@ -25,9 +25,11 @@ export class CaCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  prenota(){
+  prenota(idSettoreDataEvento:number){
     if(this.loggato==='false'){
       this.errore=true;
+    } else {
+      this.router.navigate(['/prenotazione/'+idSettoreDataEvento]);
     }
     
   }

@@ -1,4 +1,40 @@
-<div *ngIf="this.settoreDataEvento!=undefined" class="card-group evet-card text-light mb-2 mt-5">
+<ng-template #popOK let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Prenotazione avvenuta con successo</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <span>Ora puoi tornare alla Home o visualizzare il tuo Profilo</span>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-outline-dark" routerLink="/home" (click)="modal.dismiss()">Torna alla HOME</button>
+    <button type="button" class="btn btn-outline-dark" routerLink="/home" (click)="modal.dismiss()" >Vai al tuo Profilo</button>
+  </div>
+</ng-template>
+
+<ng-template #popNO let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">OPS, Qualcosa è andato storto</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <span>Torna alla HOME</span>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-outline-dark" routerLink="/home" (click)="modal.dismiss()">Torna alla HOME</button>
+  </div>
+</ng-template>
+
+
+
+<div
+  *ngIf="this.settoreDataEvento != undefined"
+  class="card-group evet-card text-light mb-2 mt-5"
+>
   <div class="card mb-0">
     <div class="card-body py-1">
       <div class="row">
@@ -118,10 +154,16 @@
   </div>
 </div>
 
-<div style="font-size: 20px;">
-  <div class="row col-3"><span class="badge badge-danger" style="margin: 10px;" *ngIf="this.errore">Massimo posti disponibili raggiunti</span> </div>
+<div style="font-size: 20px">
+  <div class="row col-3">
+    <span class="badge badge-danger" style="margin: 10px" *ngIf="this.errore"
+      >Massimo posti disponibili raggiunti</span
+    >
+  </div>
 
-  <span class="badge badge-dark" style="margin: 10px;">Seleziona il numero di persone che vuoi invitare</span> 
+  <span class="badge badge-dark" style="margin: 10px"
+    >Seleziona il numero di persone che vuoi invitare</span
+  >
   <button (click)="diminuisci()">
     <i class="fa fa-minus" aria-hidden="true"></i>
   </button>
@@ -131,19 +173,51 @@
   </button>
 </div>
 
-<form [formGroup]="dati"  (ngSubmit)="invio()">
-  <div *ngFor="let item of val; let i=index" >
-    <input  [formControlName]="'codiFiscale'+item" type="text" class="form-control" id="floatingInputValue{{i}}"  >
-    <label for="floatingInputValue{{i}}">Codice Fiscale</label>
+<form [formGroup]="dati" (ngSubmit)="invio(popOK,popNO)">
+  <div *ngFor="let item of val; let i = index">
+    <input
+      [formControlName]="'codiFiscale' + item"
+      type="text"
+      class="form-control"
+      id="floatingInputValue{{ i }}"
+    />
+    <label for="floatingInputValue{{ i }}">Codice Fiscale</label>
   </div>
 
-  <input formControlName="carta" type="text" class="form-control mb-2 " id="carta" placeholder="Inserisci il n. della carta">
-  <input  formControlName="cvv" type="text" class="form-control mb-2 " id="carta" placeholder="CVV">
-  <input  formControlName="intestatario" type="text" class="form-control mb-2 " id="carta" placeholder="Intestatario">
-  <input  formControlName="dataScadenza" type="date" class="form-control " id="dataScadenza"  >
-  <label for="dataScadenza">Data scadenza</label><br>
-  <span style="color:black; margin-right:20px" class="badge badge-pill badge-warning">Prezzo totale:  {{this.prezzo| currency: "EUR"}}</span>
-  <input type="submit" value="Prenota"[disabled]="dati.invalid">
+  <input
+    formControlName="carta"
+    type="text"
+    class="form-control mb-2"
+    id="carta"
+    placeholder="Inserisci il n. della carta"
+  />
+  <input
+    formControlName="cvv"
+    type="text"
+    class="form-control mb-2"
+    id="carta"
+    placeholder="CVV"
+  />
+  <input
+    formControlName="intestatario"
+    type="text"
+    class="form-control mb-2"
+    id="carta"
+    placeholder="Intestatario"
+  />
+  <input
+    formControlName="dataScadenza"
+    type="date"
+    class="form-control"
+    id="dataScadenza"
+    [min]="date"
+  />
+  <label for="dataScadenza">Data scadenza</label><br />
+  <span
+    style="color: black; margin-right: 20px"
+    class="badge badge-pill badge-warning"
+    >Prezzo totale: {{ this.prezzo | currency: "EUR" }}</span
+  >
+  <input type="submit" value="Prenota" [disabled]="dati.invalid" />
 </form>
-
 

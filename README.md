@@ -21,7 +21,9 @@ Frontend {
 da fare{
   profilo,
   recensione,
-  sfondo
+  sfondo,
+  popup -> /profilo routerLink
+  
 }
 
 cose fiche da fare in futuro{

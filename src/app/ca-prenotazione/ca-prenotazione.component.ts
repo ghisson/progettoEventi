@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Settore } from '../model/settore';
 import { SettoreDataEvento } from '../model/settore-data-evento';
 import { SupportoPrenotazione } from '../model/supporto-prenotazione';
@@ -28,6 +29,8 @@ export class CaPrenotazioneComponent implements OnInit {
   supportoPrenotazione:any;
   prezzo:number;
   prezzoBiglietto:number;
+  date:any;
+  
 
 
   constructor(
@@ -36,16 +39,18 @@ export class CaPrenotazioneComponent implements OnInit {
     private serviceSettoreDataEvento: ServiceEventoDataSettoreService,
     private router: Router,
     private fb: FormBuilder,
-    private prenotazioneEffettuataService: PrenotazioEffettuataService
+    private prenotazioneEffettuataService: PrenotazioEffettuataService,
+    private modalService: NgbModal
   ) {
+    this.date = new Date().toISOString().slice(0, 10);
     this.utentiInvitati=[]
     this.errore=false;
     this.countVal=0;
     this.idSettoreDataEvento = this.route.snapshot.paramMap.get('id');
     this.idUtente = this.serviceUtente.getId();
 
-    this.val=[];
 
+    this.val=[];
     this.dati = this.fb.group({
       carta: ['', [Validators.required]],
       intestatario: ['', [Validators.required]],
@@ -102,7 +107,7 @@ export class CaPrenotazioneComponent implements OnInit {
 
 
 
-  invio(){
+  invio(popOK:any,popNO:any){
     this.codiciFiscali=[]
     for(let i=0;i<this.countVal;i++){
       this.codiciFiscali.push(this.dati.get("codiFiscale"+(i+1))?.value)
@@ -115,13 +120,23 @@ export class CaPrenotazioneComponent implements OnInit {
     this.prenotazioneEffettuataService.addNewPrenotazioneEffettuata(this.supportoPrenotazione).subscribe(
       (response:any) => {
         console.log(response)
+        this.modalService.open(popOK, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+
+        }, (reason) => {
+
+        });
       },
       (error:any) => {
         console.log(error)
+        this.modalService.open(popNO, { backdrop: false });
       }
     )
 
 
+  }
+
+  closeModal(popNO:any) {
+    this.modalService.dismissAll()
   }
 
 
