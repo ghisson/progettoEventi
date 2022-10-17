@@ -26,6 +26,9 @@ export class CaPrenotazioneComponent implements OnInit {
   errore:any
   utentiInvitati:string[]
   supportoPrenotazione:any;
+  prezzo:number;
+  prezzoBiglietto:number;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -50,18 +53,22 @@ export class CaPrenotazioneComponent implements OnInit {
       dataScadenza: ['', [Validators.required]]
     });
     this.codiciFiscali=this.dati.get("codiciFiscali") as FormArray 
-
+    this.prezzo=0;
+    this.prezzoBiglietto=0;
     this.serviceSettoreDataEvento
       .getSettoreDataEventoById(this.idSettoreDataEvento)
       .subscribe(
         (response: any) => {
           this.settoreDataEvento = new SettoreDataEvento(response);
+          this.prezzoBiglietto=Number(this.settoreDataEvento?.getPrezzoBiglietto()) ;
+          this.prezzo+=this.prezzoBiglietto;
           console.log(this.settoreDataEvento);
         },
         (error: any) => {
           this.router.navigate(['/home']);
         }
       );
+    
   }
 
   ngOnInit(): void {
@@ -74,6 +81,7 @@ export class CaPrenotazioneComponent implements OnInit {
       this.val.push(this.countVal);
       this.errore=false;
       this.dati.addControl('codiFiscale'+this.countVal, new FormControl('', Validators.required));
+      this.prezzo+=this.prezzoBiglietto;
     }else{
       this.errore=true;
     }
@@ -87,6 +95,7 @@ export class CaPrenotazioneComponent implements OnInit {
       this.val.pop();
       this.dati.removeControl('codiFiscale'+this.countVal)
       this.countVal--;
+      this.prezzo-=this.prezzoBiglietto;
     } 
   }
 
