@@ -120,7 +120,7 @@ export class CaPrenotazioneComponent implements OnInit {
     this.prenotazioneEffettuataService.addNewPrenotazioneEffettuata(this.supportoPrenotazione).subscribe(
       (response:any) => {
         console.log(response)
-        this.modalService.open(popOK, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+        this.modalService.open(popOK, { backdrop: false }).result.then((result) => {
 
         }, (reason) => {
 

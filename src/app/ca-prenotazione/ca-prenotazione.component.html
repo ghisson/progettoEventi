@@ -1,31 +1,25 @@
 <ng-template #popOK let-modal>
-  <div class="modal-header">
+  <div id="modalOK" class="modal-header " >
     <h4 class="modal-title" id="modal-basic-title">Prenotazione avvenuta con successo</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
   </div>
   <div class="modal-body">
     <span>Ora puoi tornare alla Home o visualizzare il tuo Profilo</span>
   </div>
-  <div class="modal-footer">
-    <button class="btn btn-outline-dark" routerLink="/home" (click)="modal.dismiss()">Torna alla HOME</button>
-    <button type="button" class="btn btn-outline-dark" routerLink="/profilo" (click)="modal.dismiss()" >Vai al tuo Profilo</button>
+  <div class="modal-footer" id="btnModal">
+    <button class="btn btn-dark" routerLink="/home" (click)="modal.dismiss()">Torna alla HOME</button>
+    <button class="btn btn-dark" routerLink="/profilo" (click)="modal.dismiss()" >Vai al tuo Profilo</button>
   </div>
 </ng-template>
 
 <ng-template #popNO let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">OPS, Qualcosa è andato storto</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
   </div>
   <div class="modal-body">
     <span>Torna alla HOME</span>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-outline-dark" routerLink="/home" (click)="modal.dismiss()">Torna alla HOME</button>
+    <button class="btn btn-dark" routerLink="/home" (click)="modal.dismiss()">Torna alla HOME</button>
   </div>
 </ng-template>
 

@@ -22,11 +22,14 @@ da fare{
   
 
   recensione,MODAL -> salva nel db -> disable btn modify
+
   sfondo,
 
-  label prenotazioniEffettuate
-  modal prenEffetuta E' CAZZO BRUTTO
-  sei sicuro di non voler vedere chi hai invitato?=?=??????????????????????? -> modal
+  spaziare "applica filtri"
+
+  modal pren Eff -> margin-top
+  modal -> utenti invitati su prenEffettuate -> show codiceFiscale
+  
 }
 
 cose fiche da fare in futuro{

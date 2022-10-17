@@ -8,7 +8,14 @@
               <div class="card-block text-center text-white">
                 <div class="m-b-25">
                   <img
-                    src="https://img.icons8.com/bubbles/100/000000/user.png"
+                  *ngIf="this.genereU === 'M'"
+                    src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/supportmale-512.png"
+                    class="img-radius"
+                    alt="User-Profile-Image"
+                  />
+                  <img
+                  *ngIf="this.genereU === 'F'"
+                    src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/girl-512.png"
                     class="img-radius"
                     alt="User-Profile-Image"
                   />
@@ -22,7 +29,7 @@
             </div>
             <div class="col-sm-8">
               <div class="card-block">
-                <h6 class="m-b-20 p-b-5 b-b-default f-w-600" id="info">Informazioni personali</h6>
+                <h6 class="m-b-20 p-b-5 b-b-default f-w-600 " id="info">Informazioni personali</h6>
                 <div class="row">
                   <div class="col-sm-6">
                     <p class="m-b-10 f-w-600">Email</p>
@@ -103,8 +110,9 @@
     </div>
   </div>
 </div>
-
-<h1>PRENOTAZIONI EFFETTUATE</h1>
+<h1>
+<span class="badge badge-warning " id="prenEff" >PRENOTAZIONI EFFETTUATE</span>
+</h1>
 <div class="card-group evet-card text-light mbg-2 mt-5" *ngFor="let prenotazione of prenotazioniEffettuate" >
   <div class="card mb-0">
     <div class="card-body py-1">

@@ -142,3 +142,15 @@ body {
 .evet-card > .card {
   background: #242021;
 }
+
+.modal-header
+ {
+  color:white;
+  background: linear-gradient(to right, #463816, #ba9643);
+ }
+
+#btnModal {
+  display:flex;
+  justify-content: center;
+}
+

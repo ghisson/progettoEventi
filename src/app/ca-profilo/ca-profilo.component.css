@@ -2,6 +2,8 @@ body {
   background-color: #f9f9fa
 }
 
+
+
 .padding {
   margin-top: 3rem !important
 }
@@ -50,6 +52,13 @@ body {
 .img-radius {
   border-radius: 5px;
   height: 150px;
+}
+
+#prenEff {
+  display:flex;
+  justify-content: center;
+  background: linear-gradient(to right, #463816, #ba9643);
+
 }
 
 #info{
