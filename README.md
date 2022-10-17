@@ -19,12 +19,9 @@ Frontend {
 }
 
 da fare{
-  NON PUOI AGGIUNGERE INPUT TYPE PIU DI QUANTO é IL NUMERO DEI POSTI DISPONIBILI (PRENOTAZIONE)
-  prenota angular,
   profilo,
   recensione,
-  sfondo,
-  controllo posti disponibile per evento (Fatta da testare)
+  sfondo
 }
 
 cose fiche da fare in futuro{
