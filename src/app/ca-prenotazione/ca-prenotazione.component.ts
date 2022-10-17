@@ -135,9 +135,6 @@ export class CaPrenotazioneComponent implements OnInit {
 
   }
 
-  closeModal(popNO:any) {
-    this.modalService.dismissAll()
-  }
 
 
 }
