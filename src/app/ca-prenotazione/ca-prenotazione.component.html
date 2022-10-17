@@ -142,7 +142,7 @@
   <input  formControlName="intestatario" type="text" class="form-control mb-2 " id="carta" placeholder="Intestatario">
   <input  formControlName="dataScadenza" type="date" class="form-control " id="dataScadenza"  >
   <label for="dataScadenza">Data scadenza</label><br>
-  <span class="badge badge-danger" style="margin: 10px;" > prezzoBiglietto {{this.prezzo}}</span>
+  <span style="color:black; margin-right:20px" class="badge badge-pill badge-warning">Prezzo totale:  {{this.prezzo| currency: "EUR"}}</span>
   <input type="submit" value="Prenota"[disabled]="dati.invalid">
 </form>
 
