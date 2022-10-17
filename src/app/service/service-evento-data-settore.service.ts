@@ -15,7 +15,7 @@ export class ServiceEventoDataSettoreService {
       'Content-Type':  'application/json',
       "Access-Control-Allow-Origin": "*",
     } ), 
-};
+  };
 
   constructor(private http: HttpClient) { }
 

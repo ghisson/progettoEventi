@@ -15,6 +15,7 @@ import { ServiceEventoDataSettoreService } from './service/service-evento-data-s
 import { CaCardComponent } from './ca-card/ca-card.component';
 import { ServiceEventoService } from './service/service-evento.service';
 import { CaPrenotazioneComponent } from './ca-prenotazione/ca-prenotazione.component';
+import { PrenotazioEffettuataService } from './service/prenotazio-effettuata.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { CaPrenotazioneComponent } from './ca-prenotazione/ca-prenotazione.compo
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ServiceUtente,ServiceEventoDataSettoreService,ServiceEventoService],
+  providers: [ServiceUtente,ServiceEventoDataSettoreService,ServiceEventoService,PrenotazioEffettuataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

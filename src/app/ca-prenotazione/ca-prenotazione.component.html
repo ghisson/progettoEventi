@@ -119,6 +119,8 @@
 </div>
 
 <div style="font-size: 20px;">
+  <div class="row col-3"><span class="badge badge-danger" style="margin: 10px;" *ngIf="this.errore">Massimo posti disponibili raggiunti</span> </div>
+
   <span class="badge badge-dark" style="margin: 10px;">Seleziona il numero di persone che vuoi invitare</span> 
   <button (click)="diminuisci()">
     <i class="fa fa-minus" aria-hidden="true"></i>
@@ -134,5 +136,12 @@
     <input  [formControlName]="'codiFiscale'+item" type="text" class="form-control" id="floatingInputValue{{i}}"  >
     <label for="floatingInputValue{{i}}">Codice Fiscale</label>
   </div>
-  <input type="submit">
+
+  <input formControlName="carta" type="text" class="form-control mb-2 " id="carta" placeholder="Inserisci il n. della carta">
+  <input  formControlName="cvv" type="text" class="form-control mb-2 " id="carta" placeholder="CVV">
+  <input  formControlName="intestatario" type="text" class="form-control mb-2 " id="carta" placeholder="Intestatario">
+  <input  formControlName="dataScadenza" type="date" class="form-control " id="dataScadenza"  >
+  <label for="dataScadenza">Data scadenza</label><br>
+    
+  <input type="submit" value="Prenota"[disabled]="dati.invalid">
 </form>
