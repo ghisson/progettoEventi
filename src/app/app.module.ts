@@ -16,6 +16,7 @@ import { CaCardComponent } from './ca-card/ca-card.component';
 import { ServiceEventoService } from './service/service-evento.service';
 import { CaPrenotazioneComponent } from './ca-prenotazione/ca-prenotazione.component';
 import { PrenotazioEffettuataService } from './service/prenotazio-effettuata.service';
+import { CaProfiloComponent } from './ca-profilo/ca-profilo.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PrenotazioEffettuataService } from './service/prenotazio-effettuata.ser
     CaLoginComponent,
     CaHomeComponent,
     CaCardComponent,
-    CaPrenotazioneComponent
+    CaPrenotazioneComponent,
+    CaProfiloComponent
   ],
   imports: [
     BrowserModule,
