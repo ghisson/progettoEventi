@@ -41,7 +41,7 @@
     
     </div>
     <div class="modal-footer">
-      <input type="submit" class="btn btn-dark" value="Salva">
+      <input type="submit" [disabled]="dati.invalid" class="btn btn-dark" value="Salva">
       <button class="btn btn-dark" type="button" (click)="chiudiPopUp(modal)">Chiudi</button>
     </div>
 </form>
