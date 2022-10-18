@@ -24,4 +24,8 @@ export class PrenotazioEffettuataService {
   addNewPrenotazioneEffettuata(sp:SupportoPrenotazione):Observable<any> {   
     return this.http.post<any>(baseUrl+'/addPrenotazioneEffettuata',sp,this.httpOptions);
   }
+
+  addRecensione(id:any,dati:any):Observable<any> {   
+    return this.http.post<any>(baseUrl+'/addRecensione/'+id,dati,this.httpOptions);
+  }
 }
