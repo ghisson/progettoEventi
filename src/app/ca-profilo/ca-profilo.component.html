@@ -4,7 +4,29 @@
   </div>
   <div class="modal-body">
     <p>{{prenotazioneAttiva.getRecensione()}}</p>
-    <p>{{prenotazioneAttiva.getVotoRecensione()}}</p>
+
+    <div class="rate1" >
+      <input type="radio" *ngIf="prenotazioneAttiva.getVotoRecensione()!==5"  id="star5" value="5"  disabled/>
+      <input type="radio" *ngIf="prenotazioneAttiva.getVotoRecensione()===5" checked  id="star5" checked  value="5" disabled/>
+      <label for="star5" title="text">5 stars</label>
+
+      <input type="radio"  *ngIf="prenotazioneAttiva.getVotoRecensione()!==4"  id="star4"  value="4" disabled  />
+      <input type="radio"  *ngIf="prenotazioneAttiva.getVotoRecensione()===4" checked id="star4"  value="4"  disabled />
+      <label for="star4" title="text">4 stars</label>
+
+      <input type="radio"  *ngIf="prenotazioneAttiva.getVotoRecensione()!==3" id="star3"  value="3" disabled/>
+      <input type="radio"  *ngIf="prenotazioneAttiva.getVotoRecensione()===3" checked id="star3"  value="3" disabled/>
+      <label for="star3" title="text">3 stars</label>
+
+      <input type="radio"  *ngIf="prenotazioneAttiva.getVotoRecensione()!==2" id="star2"  value="2" disabled/>
+      <input type="radio"  *ngIf="prenotazioneAttiva.getVotoRecensione()===2" checked id="star2"  value="2" disabled/>
+      <label for="star2" title="text">2 stars</label>
+
+      <input type="radio"  id="star1" *ngIf="prenotazioneAttiva.getVotoRecensione()!==1" value="1" disabled />
+      <input type="radio"  id="star1" *ngIf="prenotazioneAttiva.getVotoRecensione()===1" checked  value="1" disabled/>
+      <label for="star1" title="text">1 star</label>
+    </div>
+    
   </div>
   <div class="modal-footer">
     <button class="btn btn-dark"  (click)="modal.dismiss()">Chiudi</button>

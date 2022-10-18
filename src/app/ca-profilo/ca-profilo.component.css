@@ -346,4 +346,53 @@ body {
   color: #c59b08;
 }
 
+
+
+
+
+
+
+
+.rate1 {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+}
+.rate1:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+.rate1:not(:checked) > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:30px;
+  color:#ccc;
+}
+.rate1:not(:checked) > label:before {
+  content: '★ ';
+}
+.rate1 > input:checked ~ label {
+  color: #ffc700;    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.modal-header
+ {
+  color:white;
+  background: linear-gradient(to right, #463816, #ba9643);
+ }
+
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
