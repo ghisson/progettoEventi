@@ -1,10 +1,11 @@
-<form [formGroup]="dati" (ngSubmit)="invio()">
+<form id="registrazione" [formGroup]="dati" (ngSubmit)="invio()">
+    <h3>Registrati</h3>
     <div class="form-group">
-      <label >nome</label>
+      <label >Nome</label>
       <input type="text" formControlName="nome" class="form-control" aria-describedby="emailHelp" placeholder="Inserisci il nome">
     </div>
     <div class="form-group">
-      <label >cognome</label>
+      <label >Cognome</label>
       <input type="text" class="form-control" formControlName="cognome" placeholder="cognome">
     </div>
     <div class="form-group">
@@ -14,26 +15,26 @@
       <input type="radio" formControlName="genere" value="F"> Femmina
     </div>
     <div class="form-group">
-      <label >email</label>
+      <label >Email</label>
       <input type="email" class="form-control" formControlName="email" placeholder="email">
     </div>
     <div class="form-group">
-      <label >password</label>
+      <label >Password</label>
       <input type="password" class="form-control" formControlName="password"  placeholder="password">
     </div>
   
     <div class="form-group">
-      <label >data di nascita</label>
+      <label >Data di nascita</label>
       <input type="date" class="form-control" formControlName="data_di_nascita"   [max]="date">
     </div>
   
     <div class="form-group">
-      <label >luogo di nascita</label>
+      <label >Luogo di nascita</label>
       <input type="text" class="form-control" formControlName="luogo_di_nascita"  placeholder="luogo di nascita">
     </div>
   
     <div class="form-group">
-      <label >codice fiscale</label>
+      <label >Codice Fiscale</label>
       <input type="text" class="form-control" formControlName="codice_fiscale"  placeholder="codice fiscale">
     </div>
     

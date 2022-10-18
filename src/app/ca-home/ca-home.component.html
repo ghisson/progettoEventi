@@ -38,8 +38,11 @@
       <input type="date" formControlName="dataFine" class="form-control col-10" [min]="this.dati.get('dataInizio')?.value!=''?this.dati.get('dataInizio')?.value:date" />
     </div>
   </div>
-  <input type="submit" value="applica filtri">
+  <input class="removeFilter" id="applicaFiltri" type="submit" value="applica filtri">
+  <button type="button" class="removeFilter" (click)="resettaFiltri()">rimuovi filtri</button>
 </form>
+
+
 
 <app-ca-card *ngFor="let item of settoreDataEvento; let i=index" [settoreDataEvento]="this.settoreDataEvento[i]">
 </app-ca-card>

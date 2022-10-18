@@ -53,14 +53,30 @@ export class CaHomeComponent implements OnInit {
       (error: any) => {
         
       }
+
     )
   }
 
   invio(){
     console.log(this.dati.get("dataInizio")?.value);
     this.settoreDataEvento=[];
-    console.log(this.dati.value)
     this.serviceSettoreDataEvento.getAllSettoreDataEventoActiveByFilter(this.dati.value).subscribe(
+      (response: any) => {
+
+        for (let i in response) {
+          this.settoreDataEvento.push(new SettoreDataEvento(response[i]))
+        }
+      },
+      (error: any) => {
+        
+      }
+    )
+  }
+
+  resettaFiltri(){
+    this.dati.reset();
+    this.settoreDataEvento=[];
+    this.serviceSettoreDataEvento.getAllSettoreDataEventoActive().subscribe(
       (response: any) => {
         for (let i in response) {
           this.settoreDataEvento.push(new SettoreDataEvento(response[i]))

@@ -21,19 +21,12 @@ Frontend {
 da fare{
   
 
-  recensione,MODAL -> salva nel db -> disable btn modify
+  RECENSIONE,MODAL -> salva nel db -> disable btn modify
 
-  sfondo,
-
-  spaziare "applica filtri"
-
-  modal pren Eff -> margin-top
-  modal -> utenti invitati su prenEffettuate -> show codiceFiscale
-  
 }
 
 cose fiche da fare in futuro{
-  autocompile filtro autore,
-  scroller dei filtri (carica altro)
-  password(?)
+  autocompiler filtro autore,
+  scroller card dei filtri (carica altro)
+  password(?)update?
 }

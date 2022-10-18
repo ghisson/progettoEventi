@@ -20,6 +20,7 @@ export class PrenotazioneEffettuata {
   private descrizioneEvento: string;
   private settimane:string[];
   private mesi:string[];
+  private utentiInvitati: string[];
 
   constructor(dati: any) {
     this.idPrenotazioneEffettuata = dati.idPrenotazioneEffettuata;
@@ -43,6 +44,14 @@ export class PrenotazioneEffettuata {
     this.descrizioneEvento = dati.descrizioneEvento;
     this.settimane=["Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","Sabato","Domenica"];
     this.mesi=["Gen","Feb","Mar","Apr","Mag","Giu","Lug","Ago","Set","Ott","Nov","Dic"];
+    this.utentiInvitati=[];
+    for(let i=0; i<dati.utentiInvitati.length;i++){
+      this.utentiInvitati.push(dati.utentiInvitati[i].codiceFiscale)
+    }
+  }
+
+  getUtentiInvitati(){
+    return this.utentiInvitati;
   }
 
 getMonthInizio() {
