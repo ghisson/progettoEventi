@@ -207,11 +207,13 @@
     [min]="date"
   />
   <label for="dataScadenza">Data scadenza</label><br />
+  <div class="row" style="margin-left:1px;">
   <span
-    style="color: black; margin-right: 20px"
-    class="badge badge-pill badge-warning"
+    style="color: black; margin-right: 20px; height:35px; display:flex; justify-content: center; align-items: center; font-size : 13px;"
+    class="badge badge-pill badge-warning col-2 "
     >Prezzo totale: {{ this.prezzo | currency: "EUR" }}</span
   >
-  <input type="submit" value="Prenota" [disabled]="dati.invalid" />
+  <input class="button-12 col-2" type="submit" value="Prenota" [disabled]="dati.invalid" />
+</div>
 </form>
 

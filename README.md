@@ -19,10 +19,8 @@ Frontend {
 }
 
 da fare{
-  
-
   RECENSIONE,MODAL -> salva nel db -> disable btn modify
-
+  
 }
 
 cose fiche da fare in futuro{
