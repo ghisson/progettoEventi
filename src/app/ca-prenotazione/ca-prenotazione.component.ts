@@ -3,6 +3,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Evento } from '../model/evento';
 import { Settore } from '../model/settore';
 import { SettoreDataEvento } from '../model/settore-data-evento';
 import { SupportoPrenotazione } from '../model/supporto-prenotazione';
@@ -30,6 +31,7 @@ export class CaPrenotazioneComponent implements OnInit {
   prezzo:number;
   prezzoBiglietto:number;
   date:any;
+  evento:Evento | undefined;
   
 
 
@@ -67,7 +69,9 @@ export class CaPrenotazioneComponent implements OnInit {
           this.settoreDataEvento = new SettoreDataEvento(response);
           this.prezzoBiglietto=Number(this.settoreDataEvento?.getPrezzoBiglietto()) ;
           this.prezzo+=this.prezzoBiglietto;
+          this.evento=this.settoreDataEvento.getDataEvento().getEvento();
           console.log(this.settoreDataEvento);
+          console.log(this.evento)
         },
         (error: any) => {
           this.router.navigate(['/home']);
