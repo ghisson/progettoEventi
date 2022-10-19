@@ -22,7 +22,8 @@ export class CaLoginComponent implements OnInit {
     })
     this.errore = false;
     this.idUtente = this.serviceUtente.getId();
-    if(this.idUtente!=0){
+    console.log(this.idUtente)
+    if(this.idUtente!=null && this.idUtente!=0){
       this.router.navigate(['/home']);
     }
 

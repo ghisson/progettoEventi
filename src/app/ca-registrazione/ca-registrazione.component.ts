@@ -32,7 +32,7 @@ export class CaRegistrazioneComponent implements OnInit {
     })
 
     this.idUtente = this.serviceUtente.getId();
-    if(this.idUtente!=0){
+    if(this.idUtente!=null && this.idUtente!=0){
       this.router.navigate(['/home']);
     }
 
