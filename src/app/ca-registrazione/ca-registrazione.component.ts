@@ -15,9 +15,13 @@ export class CaRegistrazioneComponent implements OnInit {
   utente: Utente | undefined;
   date:any
   idUtente:any;
+  errore:boolean;
+  errorone:string;
 
   constructor(private fb: FormBuilder, private serviceUtente: ServiceUtente,
     private router: Router) {
+      this.errore=false;
+      this.errorone="";
     
     this.date = new Date().toISOString().slice(0, 10);
     this.dati = this.fb.group({
@@ -47,9 +51,12 @@ export class CaRegistrazioneComponent implements OnInit {
     this.utente = new Utente(this.dati);
     this.serviceUtente.creaUtente(this.utente).subscribe(
       (response:any) => {
+        this.errore=false;
         this.router.navigate(['/login'])
       },
       (error:any) => {
+        this.errore=true;
+        this.errorone=error.error.error;
       }
     )
   }

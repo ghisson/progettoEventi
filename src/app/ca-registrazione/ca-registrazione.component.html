@@ -1,13 +1,14 @@
 <div style="display:flex; justify-content:center;">
 <form id="registrazione" style="width:30%" [formGroup]="dati" (ngSubmit)="invio()">
     <h3 style="text-align: center;">Registrati</h3>
+    <span class="badge badge-danger " style="background-color: red; margin-top: 5px;" *ngIf="this.errore">{{this.errorone}}</span> 
     <div class="form-group">
       <label >Nome</label>
-      <input type="text" formControlName="nome" class="form-control" aria-describedby="emailHelp" placeholder="Inserisci il nome">
+      <input maxlength="20" type="text" formControlName="nome" class="form-control" aria-describedby="emailHelp" placeholder="Inserisci il nome">
     </div>
     <div class="form-group">
       <label >Cognome</label>
-      <input type="text" class="form-control" formControlName="cognome" placeholder="cognome">
+      <input maxlength="20" type="text" class="form-control" formControlName="cognome" placeholder="cognome">
     </div>
     <div class="form-group">
       <label >Sesso</label>
@@ -17,11 +18,11 @@
     </div>
     <div class="form-group">
       <label >Email</label>
-      <input type="email" class="form-control" formControlName="email" placeholder="email">
+      <input maxlength="45" type="email" class="form-control" formControlName="email" placeholder="email">
     </div>
     <div class="form-group">
       <label >Password</label>
-      <input type="password" class="form-control" formControlName="password"  placeholder="password">
+      <input maxlength="20" type="password" class="form-control" formControlName="password"  placeholder="password">
     </div>
   
     <div class="form-group">
@@ -31,12 +32,12 @@
   
     <div class="form-group">
       <label >Luogo di nascita</label>
-      <input type="text" class="form-control" formControlName="luogo_di_nascita"  placeholder="luogo di nascita">
+      <input maxlength="45" type="text" class="form-control" formControlName="luogo_di_nascita"  placeholder="luogo di nascita">
     </div>
   
     <div class="form-group">
       <label >Codice Fiscale</label>
-      <input type="text" class="form-control" formControlName="codice_fiscale"  placeholder="codice fiscale">
+      <input maxlength="16" type="text" class="form-control" formControlName="codice_fiscale"  placeholder="codice fiscale">
     </div>
     <div id="subMit">
     <button type="submit" [disabled]="dati.invalid" class="btn btn-primary button-12">Submit</button>
