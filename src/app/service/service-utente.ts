@@ -57,5 +57,5 @@ export class ServiceUtente {
 
     getUtenteById(id:any):Observable<any> {   
         return this.http.get<any>(baseUrl+'/getUtente/'+id);
-      }
+    }
 }

@@ -148,14 +148,108 @@
   </div>
 </div>
 
-<div style="font-size: 20px">
+
+<div style="margin-top:20px;text-align: center; margin-bottom:50px;">
+  <span class="heading">User Rating</span>
+  <span class="fa fa-star checked"></span>
+
+  <span class="fa fa-star checked" *ngIf="this.recensione?.getMedia()>2"></span>
+  <span class="fa fa-star " *ngIf="this.recensione?.getMedia()<2"></span>
+
+  
+
+  <span class="fa fa-star checked" *ngIf="this.recensione?.getMedia()>3"></span>
+  <span class="fa fa-star " *ngIf="this.recensione?.getMedia()<3"></span>
+
+  <span class="fa fa-star checked" *ngIf="this.recensione?.getMedia()>4"></span>
+  <span class="fa fa-star " *ngIf="this.recensione?.getMedia()<4"></span>
+
+  <span class="fa fa-star checked" *ngIf="this.recensione?.getMedia()===5"></span>
+  <span class="fa fa-star" *ngIf="this.recensione?.getMedia()<5"></span>
+
+  <p> la media è: {{this.recensione?.getMedia()?.toFixed(1)}} su {{this.recensione?.getTot()}} recensioni</p>
+  
+  
+    <div class="row">
+    <div class="side" >
+      <div>5 star</div>
+    </div>
+    <div class="middle">
+      <div class="bar-container">
+        <div class="bar-5" [style.width.%]="recensione?.getPercCinque()"></div>
+      </div>
+    </div>
+    <div class="side right">
+      <div>{{this.recensione?.getVotoCinque()}}</div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="side">
+      <div>4 star</div>
+    </div>
+    <div class="middle">
+      <div class="bar-container">
+        <div class="bar-4" [style.width.%]="recensione?.getPercQuattro()" ></div>
+      </div>
+    </div>
+
+    <div class="side right">
+      <div>{{this.recensione?.getVotoQuattro()}}</div>
+    </div>
+  </div>
+    <div class="row">
+    <div class="side">
+      <div>3 star</div>
+    </div>
+    <div class="middle">
+      <div class="bar-container">
+        <div class="bar-3" [style.width.%]="recensione?.getPercTre()" ></div>
+      </div>
+    </div>
+  
+    <div class="side right">
+      <div>{{this.recensione?.getVotoTre()}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="side">
+      <div>2 star</div>
+    </div>
+    <div class="middle">
+      <div class="bar-container">
+        <div class="bar-2" [style.width.%]="recensione?.getPercDue()" ></div>
+      </div>
+    </div>
+    <div class="side right">
+      <div>{{this.recensione?.getVotoDue()}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="side">
+      <div>1 star</div>
+    </div>
+    <div class="middle">
+      <div class="bar-container">
+        <div class="bar-1" [style.width.%]="recensione?.getPercUno()" ></div>
+      </div>
+    </div>
+    <div class="side right">
+      <div>{{this.recensione?.getVotoUno()}}</div>
+    </div>
+  </div>
+
+
+
+
+<div style="font-size: 20px; margin-top:20px; margin-bottom: 20px; float:left; width:100%;">
   <div class="row col-3">
-    <span class="badge badge-danger" style="margin: 10px" *ngIf="this.errore"
+    <span class="badge badge-danger" style="margin-right:10px;" *ngIf="this.errore"
       >Massimo posti disponibili raggiunti</span
     >
   </div>
 
-  <span class="badge badge-dark" style="margin: 10px"
+  
+  <span class="badge badge-dark" style="margin-right:10px;"
     >Seleziona il numero di persone che vuoi invitare</span
   >
   <button (click)="diminuisci()">
@@ -167,8 +261,10 @@
   </button>
 </div>
 
-<form [formGroup]="dati" (ngSubmit)="invio(popOK,popNO)">
-  <div *ngFor="let item of val; let i = index">
+
+
+<form [formGroup]="dati" (ngSubmit)="invio(popOK,popNO)" >
+  <div *ngFor="let item of val; let i = index" class="row" style="display:flex; justify-content: center;">
     <input
       [formControlName]="'codiFiscale' + item"
       type="text"
@@ -178,6 +274,7 @@
     <label for="floatingInputValue{{ i }}">Codice Fiscale</label>
   </div>
 
+  <div class="row" style="display:flex; justify-content: center;">
   <input
     formControlName="carta"
     type="text"
@@ -185,6 +282,8 @@
     id="carta"
     placeholder="Inserisci il n. della carta"
   />
+</div>
+<div class="row" style="display:flex; justify-content: center;">
   <input
     formControlName="cvv"
     type="text"
@@ -192,6 +291,8 @@
     id="carta"
     placeholder="CVV"
   />
+</div>
+  <div class="row" style="display:flex; justify-content: center;">
   <input
     formControlName="intestatario"
     type="text"
@@ -199,6 +300,8 @@
     id="carta"
     placeholder="Intestatario"
   />
+</div>
+<div class="row" style="display:flex; justify-content: center;">
   <input
     formControlName="dataScadenza"
     type="date"
@@ -206,8 +309,10 @@
     id="dataScadenza"
     [min]="date"
   />
-  <label for="dataScadenza">Data scadenza</label><br />
-  <div class="row" style="margin-left:1px;">
+</div>
+
+  <label style="float:center; margin-top:5px; margin-left:1px; " for="dataScadenza">Data scadenza</label><br />
+  <div class="row" style=" margin-top:10px; margin-left:1px; display:flex; justify-content: center;">
   <span
     style="color: black; margin-right: 20px; height:35px; display:flex; justify-content: center; align-items: center; font-size : 13px;"
     class="badge badge-pill badge-warning col-2 "
@@ -218,6 +323,3 @@
 </form>
 
 
-<div style="margin-top:50px;text-align: center;">
-  <p>qua sotto ci stanno le cazzo di medie</p>
-</div>

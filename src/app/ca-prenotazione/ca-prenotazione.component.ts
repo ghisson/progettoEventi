@@ -4,7 +4,9 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Evento } from '../model/evento';
+import { PrenotazioneEffettuata } from '../model/prenotazione-effettuata';
 import { Settore } from '../model/settore';
+import { Recensione } from '../model/recensione';
 import { SettoreDataEvento } from '../model/settore-data-evento';
 import { SupportoPrenotazione } from '../model/supporto-prenotazione';
 import { PrenotazioEffettuataService } from '../service/prenotazio-effettuata.service';
@@ -32,6 +34,11 @@ export class CaPrenotazioneComponent implements OnInit {
   prezzoBiglietto:number;
   date:any;
   evento:Evento | undefined;
+  recensioni: PrenotazioneEffettuata[];
+  recensione:any;
+
+
+
   
 
 
@@ -50,6 +57,7 @@ export class CaPrenotazioneComponent implements OnInit {
     this.countVal=0;
     this.idSettoreDataEvento = this.route.snapshot.paramMap.get('id');
     this.idUtente = this.serviceUtente.getId();
+    this.recensioni=[]
 
 
     this.val=[];
@@ -72,16 +80,36 @@ export class CaPrenotazioneComponent implements OnInit {
           this.evento=this.settoreDataEvento.getDataEvento().getEvento();
           console.log(this.settoreDataEvento);
           console.log(this.evento)
+
+
+          this.prenotazioneEffettuataService
+            .getMediaRecensioni(this.evento?.getIdEvento())
+            .subscribe(
+              (response: any) => {
+                for(let i=0;i<response.length;i++){
+                  this.recensioni.push(new PrenotazioneEffettuata(response[i]));
+                }
+                this.recensione = new Recensione(this.recensioni);
+              },
+              (error: any) => {
+                this.router.navigate(['/home']);
+              }
+            );
+
         },
         (error: any) => {
           this.router.navigate(['/home']);
         }
       );
-    
+      
+      
+
+
   }
 
   ngOnInit(): void {
-    
+
+  
   }
 
   aumenta():void {

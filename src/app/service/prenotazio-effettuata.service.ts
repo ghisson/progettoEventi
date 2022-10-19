@@ -28,4 +28,9 @@ export class PrenotazioEffettuataService {
   addRecensione(id:any,dati:any):Observable<any> {   
     return this.http.post<any>(baseUrl+'/addRecensione/'+id,dati,this.httpOptions);
   }
+
+  getMediaRecensioni(id:any) {
+    return this.http.get<any>(baseUrl+'/getPrenotazioneEffettuataByIdEvento/'+id);
+  }
+
 }
