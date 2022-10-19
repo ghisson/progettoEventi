@@ -75,8 +75,7 @@ export class Recensione {
     this.percTre=(this.votoTre/this.tot)*100;
     this.percDue=(this.votoDue/this.tot)*100;
     this.percUno=(this.votoUno/this.tot)*100;
-    console.log(this.percCinque)
-    console.log(this.media)
+
     this.media=this.media/this.tot;
   }
 
@@ -132,6 +131,7 @@ public setTot(tot: number): void {
 }
 
   public getMedia():number {
+    console.log(this.media)
     return this.media;
   }
 

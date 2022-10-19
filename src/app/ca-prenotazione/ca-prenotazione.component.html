@@ -151,24 +151,26 @@
 
 <div style="margin-top:20px;text-align: center; margin-bottom:50px;">
   <span class="heading">User Rating</span>
-  <span class="fa fa-star checked"></span>
 
-  <span class="fa fa-star checked" *ngIf="this.recensione?.getMedia()>2"></span>
+  <span class="fa fa-star checked"  *ngIf="this.recensione?.getMedia().toString()!='NaN'" ></span>
+
+  <span class="fa fa-star checked" *ngIf="this.recensione?.getMedia()>=2"></span>
   <span class="fa fa-star " *ngIf="this.recensione?.getMedia()<2"></span>
 
   
 
-  <span class="fa fa-star checked" *ngIf="this.recensione?.getMedia()>3"></span>
+  <span class="fa fa-star checked" *ngIf="this.recensione?.getMedia()>=3"></span>
   <span class="fa fa-star " *ngIf="this.recensione?.getMedia()<3"></span>
 
-  <span class="fa fa-star checked" *ngIf="this.recensione?.getMedia()>4"></span>
+  <span class="fa fa-star checked" *ngIf="this.recensione?.getMedia()>=4"></span>
   <span class="fa fa-star " *ngIf="this.recensione?.getMedia()<4"></span>
 
   <span class="fa fa-star checked" *ngIf="this.recensione?.getMedia()===5"></span>
   <span class="fa fa-star" *ngIf="this.recensione?.getMedia()<5"></span>
 
-  <p> la media è: {{this.recensione?.getMedia()?.toFixed(1)}} su {{this.recensione?.getTot()}} recensioni</p>
-  
+  <p *ngIf="this.recensione?.getMedia().toString()!='NaN'"> la media è: {{this.recensione?.getMedia()?.toFixed(1)}} su {{this.recensione?.getTot()}} recensioni</p>
+  <p *ngIf="this.recensione?.getMedia().toString()==='NaN'"> Non ci sono ancora recensioni</p>
+
   
     <div class="row">
     <div class="side" >
