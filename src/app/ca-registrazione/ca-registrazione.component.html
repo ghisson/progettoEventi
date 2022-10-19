@@ -1,5 +1,6 @@
-<form id="registrazione" [formGroup]="dati" (ngSubmit)="invio()">
-    <h3>Registrati</h3>
+<div style="display:flex; justify-content:center;">
+<form id="registrazione" style="width:30%" [formGroup]="dati" (ngSubmit)="invio()">
+    <h3 style="text-align: center;">Registrati</h3>
     <div class="form-group">
       <label >Nome</label>
       <input type="text" formControlName="nome" class="form-control" aria-describedby="emailHelp" placeholder="Inserisci il nome">
@@ -41,3 +42,4 @@
     <button type="submit" [disabled]="dati.invalid" class="btn btn-primary button-12">Submit</button>
     </div>
   </form>
+</div>

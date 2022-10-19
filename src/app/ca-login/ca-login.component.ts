@@ -11,9 +11,9 @@ import { ServiceUtente } from '../service/service-utente';
 export class CaLoginComponent implements OnInit {
 
   dati: FormGroup;
-
   errore: boolean
 
+  idUtente:any;
 
   constructor(private fb: FormBuilder, private router: Router, private serviceUtente: ServiceUtente) {
     this.dati = this.fb.group({
@@ -21,6 +21,11 @@ export class CaLoginComponent implements OnInit {
       password: ['', [Validators.required]]
     })
     this.errore = false;
+    this.idUtente = this.serviceUtente.getId();
+    if(this.idUtente!=0){
+      this.router.navigate(['/home']);
+    }
+
 
   }
 

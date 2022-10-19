@@ -14,6 +14,7 @@ export class CaRegistrazioneComponent implements OnInit {
   dati: FormGroup;
   utente: Utente | undefined;
   date:any
+  idUtente:any;
 
   constructor(private fb: FormBuilder, private serviceUtente: ServiceUtente,
     private router: Router) {
@@ -29,6 +30,12 @@ export class CaRegistrazioneComponent implements OnInit {
       luogo_di_nascita: ['', [Validators.required]],
       codice_fiscale: ['', [Validators.required]]
     })
+
+    this.idUtente = this.serviceUtente.getId();
+    if(this.idUtente!=0){
+      this.router.navigate(['/home']);
+    }
+
 
   }
   ngOnInit(): void {
