@@ -24,7 +24,7 @@ da fare{
 }
 
 cose fiche da fare in futuro{
-  average feedback user
+  
   autocompiler filtro autore,
   scroller card dei filtri (carica altro)
   password(?)update?

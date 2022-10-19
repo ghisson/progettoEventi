@@ -13,6 +13,7 @@ import { PrenotazioEffettuataService } from '../service/prenotazio-effettuata.se
 import { ServiceEventoDataSettoreService } from '../service/service-evento-data-settore.service';
 import { ServiceUtente } from '../service/service-utente';
 
+
 @Component({
   selector: 'app-ca-prenotazione',
   templateUrl: './ca-prenotazione.component.html',
@@ -64,7 +65,7 @@ export class CaPrenotazioneComponent implements OnInit {
     this.dati = this.fb.group({
       carta: ['', [Validators.required]],
       intestatario: ['', [Validators.required]],
-      cvv: ['', [Validators.required]],
+      cvv: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       dataScadenza: ['', [Validators.required]]
     });
     this.codiciFiscali=this.dati.get("codiciFiscali") as FormArray 
